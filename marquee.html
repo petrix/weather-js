@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>CORNER_LOGO</title>
+<!--Adobe Edge Runtime-->
+    <style>
+	body {
+	margin:0;padding:0;
+    background-color:#000;
+	}
+	#table1 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table1 td, #table1 th, #table1 tr {
+color:#fff; font-size:25px;
+    border: 1px solid #ddd;
+    padding-left: 0px;
+padding-top: 10px;
+    padding-bottom: 0px;
+    text-align: center;
+}	
+#table1 th canvas {
+border-radius: 64px;
+border: 1px solid #6D6D6D;
+text-align: center;
+}
+
+  
+	</style>
+
+
+		<script type="text/javascript" charset="utf-8" src="moment-with-locales.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="jquery-2.1.4.min.js"></script>
+
+	<script type="text/javascript" charset="utf-8" src="skycons.js"></script>
+	<script type="text/javascript" charset="utf-8" src="jquery.marquee.min.js"></script>
+
+
+	</head>
+	
+	<body>
+
+
+
+
+			<!-- <span id="kievmarquee" class="marquee">dasdasdasd</span> -->
+
+
+
+
+
+	<table id="table1">
+	<tr>
+	<th><span class="marquee" id="kievzone">kiev</span></th>
+	<th><span id="kievtime" >dasdasdasd</span></th>
+	<th><span id="kievtime2" >dasdasdasd</span></th>
+	<th><canvas id="kievicon" width="128" height="128">dasdasdasd</canvas></th>
+	<th><span id="kievtemp" >dasdasdasd</span></th>
+	<th><span id="kievsum" >dasdasdasd</span></th>
+	<th><span id="kievsumhr" >dasdasdasd</span></th>
+	<th><span id="kievsumdaily" >dasdasdasd</span></th>
+	<!-- <tr> -->
+		<th>
+			<div>
+			<span id="kievmarquee" class="marquee">dasdasdasd</span>
+		</div>
+		</th>
+	<!-- </tr> -->
+	</tr>
+
+	<tr>
+
+	</tr>
+</table>
+		<script type="text/javascript">
+		
+		
+//////////////////////////////////LVIV
+$('.marquee').marquee({
+    //speed in milliseconds of the marquee
+    duration: 5000,
+    //gap in pixels between the tickers
+    gap: 50,
+    //time in milliseconds before the marquee will start animating
+    delayBeforeStart: 0,
+    //'left' or 'right'
+    direction: 'left',
+    //true or false - should the marquee be duplicated to show an effect of continues flow
+    duplicated: true
+});
+
+
+//////////////////////////////////kiev
+function weather_kiev()
+{
+	 $(function(kievtemp) {
+		var apiKey = "7d7fb208bc708b6bd2657291246a83e6";
+		var url = "https://api.forecast.io/forecast/";
+		var lati = 49.8492;
+		var longi = 30.9974;
+		var data;
+$.getJSON(url + apiKey + "/" + lati + "," + longi + "?units=uk&lang=uk&callback=?", function(data) {
+		  var kievtemp = data.currently.temperature;
+		  kievicon = data.currently.icon;
+		  kievzone = data.timezone
+			kievtemp=kievtemp.toFixed(0);
+			kievtime = data.currently.time;
+		  kievsum = data.currently.summary;
+		  kievsumhr = data.hourly.summary;
+		  kievsumdaily = data.daily.summary;
+
+
+		  
+
+
+		  $("#kievzone").html(kievzone);
+		  $("#kievsum").html(kievsum);
+		  $("#kievsumhr").html(kievsumhr);
+		  $("#kievsumdaily").html(kievsumdaily);
+		  moment.lang('uk');
+		  $("#kievtime").text(moment.unix(kievtime).format('HH:mm:ss'));
+		  $("#kievtime2").text(moment.unix(kievtime).format('dddd Do MMMM')/*.lang('uk')*/);
+
+		  // dddd ll
+		  $("#kievtemp").html(kievtemp + "&deg;C");
+		//sym.$("kievicon"). html('<canvas id="kievicon" width="50" height="50"></canvas>');
+		  var skycons25 = new Skycons({"color": "white"});
+		  skycons25.add("kievicon", kievicon);
+		  skycons25.play();
+		  $("#kievmarquee").html("прогноз погоди на " + moment.unix(kievtime).format('dddd Do MMMM')+" : "+ kievtemp+"&deg;C " + kievsumdaily);
+			});
+		 });
+}
+weather_kiev();
+
+		
+		
+
+
+
+
+		
+		</script>
+	
+	
+	
+	</body>
+	</html>
