@@ -260,7 +260,7 @@ $.getJSON(url + apiKey + "/" + lati + "," + longi + "?units=uk&lang=uk&callback=
 		  var y = 7;
 			for(i=7;i>-1;i--){
 				y--;
-				var dailytime = moment.unix(data.daily.data[i].time).format('MMMM Do YYYY');
+				var dailytime = moment.unix(data.daily.data[i].time).format('dddd Do MMMM');
 				var dailysum = data.daily.data[i].summary;
 				var daysumicon = data.daily.data[i].icon;
 				
