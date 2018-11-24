@@ -67,6 +67,7 @@ $(document).ready(function () {
                     var temp = data.hourly.data[i].temperature.toFixed(1);
                     var sumicon = data.hourly.data[i].icon;
                     console.log(data.hourly.data[i]);
+                    tempcolor = 'darkred';
                     if (temp < 0) {
                         tempheight = temp * -1;
                         tempcolor = 'blue';
