@@ -42,7 +42,7 @@ $(document).ready(function () {
 
 
                         '<p>' + 'temp:' + '</p>' +
-                        '<span>' + temp + "&deg;C" + '</span>' +
+                        '<span>' + temp + "&deg;" + '</span>' +
 
                         '<div style="height:' + tempheight * 20 + 'px;' + 'background-color:' + tempcolor + '">' +
 
@@ -87,7 +87,7 @@ $(document).ready(function () {
 
 
                         '<p>' + 'temp:' + '</p>' +
-                        '<span>' + temp + "&deg;C" + '</span>' +
+                        '<span>' + temp + "&deg;" + '</span>' +
 
                         '<div style="height:' + tempheight * 20 + 'px;' + 'background-color:' + tempcolor + '">' +
 
