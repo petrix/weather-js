@@ -22,6 +22,7 @@ $(document).ready(function () {
                     var sum = data.hourly.data[i].summary;
                     var temp = data.hourly.data[i].temperature.toFixed(1);
                     var sumicon = data.hourly.data[i].icon;
+                    var humidity = data.hourly.data[i].humidity * 100;
                     console.log(data.hourly.data[i]);
 
                     if (temp < 0) {
@@ -37,6 +38,7 @@ $(document).ready(function () {
                         '<p>' + 'wind:' + '</p>' +
                         '<i class="fas fa-long-arrow-alt-up" style="transform: rotate(' + data.hourly.data[i].windBearing + 'deg)"></i>' +
                         '<span><b>' + data.hourly.data[i].windSpeed.toFixed(1) + '</b><br>' + 'M/s' + '</span>' +
+                        '<i class="fas fa-tint"></i>' + humidity + '%' +
                         '</div>' +
                         '<canvas width="48" height="48" id="sumicon' + x + '">' + 'xxx' + '</canvas>' +
 
