@@ -30,6 +30,7 @@ $(document).ready(function () {
                         tempcolor = 'blue';
                     } else {
                         tempheight = temp;
+                        tempcolor = 'darkred';
                     }
                     $("#lvivsumhr1").after(
                         '<div>' +
@@ -75,6 +76,7 @@ $(document).ready(function () {
                         tempcolor = 'blue';
                     } else {
                         tempheight = temp;
+                        tempcolor = 'darkred';
                     }
 
                     $("#lvivsumhr2").after(
