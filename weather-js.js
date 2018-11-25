@@ -81,7 +81,7 @@ $(document).ready(function () {
 
                     $("#lvivsumhr2").after(
                         '<div>' +
-                        '<span>' + time + '</span>' +
+                        '<b>' + time + '</b>' +
                         '<div>' +
                         '<p>' + 'wind:' + '</p>' +
                         '<i class="fas fa-long-arrow-alt-up" style="transform: rotate(' + data.hourly.data[i].windBearing + 'deg)"></i>' +
